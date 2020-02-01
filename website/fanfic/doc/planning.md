@@ -19,16 +19,18 @@
 
 ## Stars
 
-* Monacle Lewinsky
-  * Monacle
-* 
+* Monocle Lewinsky
+  * Monocle
+* Goose
   * Scarf and Goggles
-* Square
-  * Steampunk Cyborg
-* Dapper
+* Dataroach
+  * Cyborg
+* The Great Hatsby
   * Tophat
-* [Tentative] Moustache
-* [Tentative] Trenchcoat
+* Lord Hatsby
+  * [Tentative] Moustache
+* Blank
+  * [Tentative] Trenchcoat
 
 ## Backstory Ideas
 
@@ -36,3 +38,4 @@
 
 ## Fanservice Ideas
 
+* Lord Hatsby could take off his hat revealing that he is actually Hatsune Miku, her long green hair unfolding into a full-screen painted portrait.
