@@ -1,1 +1,1 @@
-tweego -o out/fanfic.html src
+tweego -o out/index.html src
