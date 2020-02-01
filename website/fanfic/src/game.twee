@@ -1,0 +1,15 @@
+::StoryData
+{
+    "ifid": "42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3",
+    "format":"Harlowe",
+    "format-version":"3.0.0",
+    "start":"Start"
+}
+
+::StoryTitle
+
+Big Noise
+
+:: Start
+
+Hello world!

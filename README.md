@@ -7,3 +7,16 @@ Fixing things involves shaking your smartphone.
 There are lots of noises, there's lots of voice acted dialog, and sound effects on everything you do.
 
 ? Do we need saboteurs?
+
+## Files
+
+/website/ggj2020fanfic is __Active__
+
+/website/ggj2020online is **Abandoned** :sad:
+
+## Fanfic
+
+### Dev Setup on Windows
+
+Install https://www.motoslave.net/tweego/ by downloading it and adding that folder to your %PATH% (optional)
+
