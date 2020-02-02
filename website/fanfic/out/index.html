@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<!-- UUID://42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3// --><tw-storydata name="Uranium Roachpunk: An Endless Nightmare" startnode="6" creator="Tweego" creator-version="2.1.0+9ea2fab" ifid="42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<!-- UUID://42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3// --><tw-storydata name="Uranium Roachpunk: An Endless Nightmare" startnode="7" creator="Tweego" creator-version="2.1.0+9ea2fab" ifid="42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
     background-color: hsl(80, 100%, 30%);
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="controls" tags="" position="100,100" size="100,100">You enter the control room and are comforted by the wood panelling and the brass piping running up and down the walls. The Dataroach, your favorite child, is using your castle as a prototype for a new tank design, but when he asked the townspeople for fuel they refused him, and he burned the town!
 
@@ -38,9 +38,9 @@ Your castle on a hill is also an abondoned waffle iron.
 (set: $popPercentStarved to 0)
 (set: $plagueYear to false)
 (set: $immigrantBonus to 0)
-(set: $gameOver to false)</tw-passagedata><tw-passagedata pid="3" name="buy land" tags="" position="350,100" size="100,100">(set: $tradeAcres to (num:(prompt: &quot;Land is trading at &quot; + $landPrice + &quot; bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): &quot;, &quot;0&quot;)))
+(set: $gameOver to false)</tw-passagedata><tw-passagedata pid="3" name="buy land" tags="" position="350,100" size="100,100">(set: $tradeAcres to (num:(prompt: &quot;Land is trading at &quot; + str($landPrice) + &quot; bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): &quot;, &quot;0&quot;)))
 (if: $tradeAcres &gt; 0)[Buy!]
-(if: $tradeAcres &lt; 0)[Sell!]</tw-passagedata><tw-passagedata pid="4" name="feed people" tags="" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="dig uranium" tags="" position="600,100" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="Start" tags="" position="725,100" size="100,100">&#39;&#39;Uranium Roachpunk: An Endless Nightmare&#39;&#39;
+(if: $tradeAcres &lt; 0)[Sell!]</tw-passagedata><tw-passagedata pid="4" name="feed people" tags="" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="dig uranium" tags="" position="600,100" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="todos2" tags="" position="725,100" size="100,100"># TODO: Get a story every at halftime and end</tw-passagedata><tw-passagedata pid="7" name="Start" tags="" position="850,100" size="100,100">&#39;&#39;Uranium Roachpunk: An Endless Nightmare&#39;&#39;
 
 //Part Zero: The Last Lord of the Cockroaches//
 
@@ -51,30 +51,32 @@ You didn&#39;t choose the radiation, the radiation chose you. As you hum &quot;T
 * You don&#39;t have churches
 * You don&#39;t have roads
 * You don&#39;t even have love
-(live: 10s)[* You have never had a waffle]
+(live: 30s)[* You have never had a waffle]
 
-You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:</tw-passagedata><tw-passagedata pid="7" name="sighs" tags="" position="850,100" size="100,100">&quot;If only we had [[oil]] and [[factories]], my lord, the world would be a better place to live in.&quot; 
+You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:</tw-passagedata><tw-passagedata pid="8" name="sighs" tags="" position="975,100" size="100,100">&quot;If only we had [[oil]] and [[factories]], my lord, the world would be a better place to live in.&quot; 
 
 Say, [[&quot;That was some spicy Roacha-Cola.&quot;-&gt;cola]]
 Say, [[&quot;Tell me a story from the old days.&quot;-&gt;story]]
 Say, [[&quot;Can we reach the football field in time without roads?&quot;-&gt;football intro]]
 Say, [[&quot;Do you think they love me anyway, the people?&quot;-&gt;love]]
 
-[[Go to the control room-&gt;controls]]</tw-passagedata><tw-passagedata pid="8" name="factories" tags="" position="975,100" size="100,100">The Roacha-Cola you are drinking is hand-brewed by your sons Goose and Blank, all the factories were destroyed in the (link-repeat:&quot;Big Noise&quot;)[(either:&quot;🍄&quot;,&quot;☁️&quot;,&quot;🍄&quot;,&quot;☁️&quot;,&quot;☁️&quot;,&quot;🐜🐜🐜&quot;,&quot;💀&quot;)].
+[[Go to the control room-&gt;controls]]</tw-passagedata><tw-passagedata pid="9" name="factories" tags="" position="1100,100" size="100,100">The Roacha-Cola you are drinking is hand-brewed by your sons Goose and Blank, all the factories were destroyed in the (link-repeat:&quot;Big Noise&quot;)[(either:&quot;🍄&quot;,&quot;☁️&quot;,&quot;🍄&quot;,&quot;☁️&quot;,&quot;☁️&quot;,&quot;🐜🐜&quot;,&quot;💀&quot;)].
 
-[[But that was the past.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="9" name="football intro" tags="" position="1100,100" size="100,100">You skitter out of the castle and catch a dagger in the back as two rival factions of roaches fight each other like crude centipedes due to the lack of excess U-92 available to fuel the advanced war machines you are preparing. Instead, all the U-92 is used for Roacha-Cola.
+[[But that was the past.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="10" name="football intro" tags="" position="1225,100" size="100,100">You skitter out of the castle and catch a dagger in the back as two rival factions of roaches fight each other like crude centipedes due to the lack of excess U-92 available to fuel the advanced war machines you are preparing. Instead, all the U-92 is used for Roacha-Cola.
 
-🐜 YOU HAVE DIED. 🐜</tw-passagedata><tw-passagedata pid="10" name="love" tags="" position="1225,100" size="100,100">[[no-&gt;why not]]</tw-passagedata><tw-passagedata pid="11" name="why not" tags="" position="100,225" size="100,100">&quot;But why don&#39;t my children Goose and Blank love me? My god they love me.&quot;
+🐜 YOU HAVE DIED. 🐜</tw-passagedata><tw-passagedata pid="11" name="love" tags="" position="100,225" size="100,100">[[Maybe yes?-&gt;steamy]]
+
+[[no-&gt;why not]]</tw-passagedata><tw-passagedata pid="12" name="why not" tags="" position="225,225" size="100,100">&quot;But why don&#39;t my children Goose and Blank love me? My god they love me.&quot;
 
 Silence comes down the hill outside, quite easily, as if the townsfolk have all resigned themselves to a temporary loss of fun. He silently grunts again.
 
 &quot;Children, why do you not love me? I am the most wonderful father there is.&quot;
 
-You [[sigh-&gt;sighs]].</tw-passagedata><tw-passagedata pid="12" name="cola" tags="" position="225,225" size="100,100">The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
+You [[sigh-&gt;sighs]].</tw-passagedata><tw-passagedata pid="13" name="cola" tags="" position="350,225" size="100,100">The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
 
 Eventually, the cola reaches your ring of numerous filamentous yellow-colored malpighian tubules (which have always functioned as your excretionary organs). (link-reveal: &quot;(Source)&quot;)[(https://www.youtube.com/watch?v=MTxiUGvNk2I)]
 
-[[Back-&gt;sighs]]</tw-passagedata><tw-passagedata pid="13" name="story" tags="" position="350,225" size="100,100">The steward visibly perks up and reads you a story from a scroll which says:
+[[Back-&gt;sighs]]</tw-passagedata><tw-passagedata pid="14" name="story" tags="" position="475,225" size="100,100">The steward visibly perks up and reads you a story from a scroll which says:
 
 //Before the bombs and the roaches took over the world with their legendary steam-powered mahogany tanks, the mice in Sherwood Forest worked diligently for over thirty years, painstakingly, to bring an end to this endless nightmare. Their efforts finally paid off on March 15, 1976 when the Korean Industrialist Sung Gil-Chung was captured by the mice and removed to a holding cage, but some mouse-work was still required before he could be transferred to a new kingdom. By the end of March, six members of the Sherwood Forest Mages Guild completed their mission - a boy named Kevin, a little girl named Patti, and a three-foot red dragon named Kor, and Djan, who decided to be the lucky girl. Djan// --
 
@@ -82,17 +84,19 @@ The rest of the words are singed beyond recognition, and the steward stops readi
 
 At the bottom of the page was a (link-reveal:&quot;mysterious message in blue ink with an underline&quot;)[(open-url:&quot;https://talktotransformer.com&quot;)].
 
-[[Feel inspired-&gt;wow]]</tw-passagedata><tw-passagedata pid="14" name="wow" tags="" position="475,225" size="100,100">&quot;That&#39;s my favorite bedtime story. [[Thanks-&gt;sighs]] steward!&quot;
+[[Feel inspired-&gt;wow]]</tw-passagedata><tw-passagedata pid="15" name="wow" tags="" position="600,225" size="100,100">&quot;That&#39;s my favorite bedtime story. [[Thanks-&gt;sighs]] steward!&quot;
 
-The words fall loose of your labial and maxilary palps which have relaxed in satisfaction.</tw-passagedata><tw-passagedata pid="15" name="oil" tags="" position="600,225" size="100,100">You rustle your mesothroax in frustration at the steward. &quot;You fool! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!&quot;
+The words fall loose of your labial and maxilary palps which have relaxed in satisfaction.</tw-passagedata><tw-passagedata pid="16" name="oil" tags="" position="725,225" size="100,100">You rustle your mesothroax in frustration at the steward. &quot;You fool! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!&quot;
 
 Your steward hisses, forcefully expelling air through the specially-adapted respiratory openings on the fourth segment of his body (link-reveal:&quot;(learn more)&quot;)[(open-url:&quot;https://en.wikipedia.org/wiki/Madagascar_hissing_cockroach&quot;)].
 
-[[Concentrate.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="16" name="todos" tags="" position="725,225" size="100,100">TODO: Waffle iron
+[[Concentrate.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="17" name="todos" tags="" position="850,225" size="100,100">TODO: Waffle iron
 
 TODO: include eye of the tiger lyrics
 
-TODO: Establish that we have infinite water</tw-passagedata><tw-passagedata pid="17" name="outside" tags="" position="850,225" size="100,100">[[Return to the bedchamber -&gt; sighs]]</tw-passagedata></tw-storydata>
+TODO: Establish that we have infinite water</tw-passagedata><tw-passagedata pid="18" name="outside" tags="" position="975,225" size="100,100">[[Return to the bedchamber -&gt; sighs]]</tw-passagedata><tw-passagedata pid="19" name="steamy" tags="" position="1100,225" size="100,100">You naughty reader! There&#39;s nothing here, although there is a lot of steam these days in the lab...
+
+[[Back-&gt;sighs]]</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.

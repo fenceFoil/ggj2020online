@@ -33,7 +33,7 @@ Stretching your forelegs, you set about [[attending->buy land]] to the duties of
 
 :: buy land
 
-(set: $tradeAcres to (num:(prompt: "Land is trading at " + $landPrice + " bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): ", "0")))
+(set: $tradeAcres to (num:(prompt: "Land is trading at " + str($landPrice) + " bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): ", "0")))
 (if: $tradeAcres > 0)[Buy!]
 (if: $tradeAcres < 0)[Sell!]
 
@@ -42,4 +42,6 @@ Stretching your forelegs, you set about [[attending->buy land]] to the duties of
 :: dig uranium
 
 
+:: todos2
 
+# TODO: Get a story every at halftime and end
