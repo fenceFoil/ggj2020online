@@ -1,3 +1,45 @@
 :: controls
 
-You enter the control room and are massively confused at the debris falling from the ceiling
+You enter the control room and are comforted by the wood panelling and the brass piping running up and down the walls. The Dataroach, your favorite child, is using your castle as a prototype for a new tank design, but when he asked the townspeople for fuel they refused him, and he burned the town!
+
+Now it's up to you to produce enough fuel to get his tanks back on the road and out of the sand pits they fell into.
+
+Your castle on a hill is also an abondoned waffle iron.
+
+[[Lead your city!->lead]]
+
+[[Return to the bedchamber->sighs]]
+
+:: lead
+
+Stretching your forelegs, you set about [[attending->buy land]] to the duties of state...
+
+(set: $year to 1)
+(set: $pop to 100)
+(set: $deaths to 0)
+(set: $stores to 2800)
+(set: $planted to 0)
+(set: $yield to 3)
+(set: $landPrice to 17)
+(set: $acres to 1000)
+(set: $immigrants to 5)
+(set: $eatenByRats to $acres * $yield - $stores)
+(set: $allottedFood to 0)
+(set: $totalDeaths to 0)
+(set: $popPercentStarved to 0)
+(set: $plagueYear to false)
+(set: $immigrantBonus to 0)
+(set: $gameOver to false)
+
+:: buy land
+
+(set: $tradeAcres to (num:(prompt: "Land is trading at " + $landPrice + " bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): ", "0")))
+(if: $tradeAcres > 0)[Buy!]
+(if: $tradeAcres < 0)[Sell!]
+
+:: feed people
+
+:: dig uranium
+
+
+

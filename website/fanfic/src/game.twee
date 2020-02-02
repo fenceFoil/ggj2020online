@@ -35,16 +35,42 @@ You feel the weight of the world on your prothorax. Your steward opens the spira
 
 :: sighs
 
-"If only we had [[oil]] and (link-reveal:"factories")[(open-url:"https://en.wikipedia.org/wiki/Factory")], my lord, the world would be a better place to live in." 
+"If only we had [[oil]] and [[factories]], my lord, the world would be a better place to live in." 
 
-[[Consider the Roacha-Cola you just drank->cola]]
-
+Say, [["That was some spicy Roacha-Cola."->cola]]
 Say, [["Tell me a story from the old days."->story]]
-
 Say, [["Can we reach the football field in time without roads?"->football intro]]
-Say, [["Do you think they love me anyway?"->love]]
+Say, [["Do you think they love me anyway, the people?"->love]]
 
 [[Go to the control room->controls]]
+
+:: factories
+
+The Roacha-Cola you are drinking is hand-brewed by your sons Goose and Blank, all the factories were destroyed in the (link-repeat:"Big Noise")[(either:"🍄","☁️","🍄","☁️","☁️","🐜🐜","💀")].
+
+[[But that was the past.->sighs]]
+
+:: football intro
+
+You skitter out of the castle and catch a dagger in the back as two rival factions of roaches fight each other like crude centipedes due to the lack of excess U-92 available to fuel the advanced war machines you are preparing. Instead, all the U-92 is used for Roacha-Cola.
+
+🐜 YOU HAVE DIED. 🐜
+
+:: love
+
+[[Maybe yes?->steamy]]
+
+[[no->why not]]
+
+:: why not
+
+"But why don't my children Goose and Blank love me? My god they love me."
+
+Silence comes down the hill outside, quite easily, as if the townsfolk have all resigned themselves to a temporary loss of fun. He silently grunts again.
+
+"Children, why do you not love me? I am the most wonderful father there is."
+
+You [[sigh->sighs]].
 
 :: cola
 
