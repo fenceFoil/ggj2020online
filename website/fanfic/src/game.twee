@@ -20,41 +20,39 @@ tw-story {
 
 ''Uranium Roachpunk: An Endless Nightmare''
 
-//(link-reveal:"Part Zero:")[The Last Lord of the Cockroaches]//
+//Part Zero: The Last Lord of the Cockroaches//
 
-You didn't choose the radiation, the radiation chose you. As you hum "The Eye of the Tiger" while cracking open a fresh Roacha-Cola 92, you consider the things that need repair:
+You didn't choose the radiation, the radiation chose you. As you hum "The Eye of the Tiger" while cracking open a fresh Roacha-Cola U-92, you consider the things that need repair:
 
 * (link: "Humanity")[No, **Roachkind**] was great
-* You don't have (link-reveal:"jobs")[(why?)]
+* You don't have (link-reveal:"jobs")[ (why?)]
 * You don't have churches
 * You don't have roads
 * You don't even have love
-* You have never had a waffle
+(live: 10s)[* You have never had a waffle]
 
 You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:
 
 :: sighs
 
-"If only we had [[oil]] and (link:"factories")[(open-url:"https://en.wikipedia.org/wiki/Factory")], my lord, the world would be a better place to live in." 
-
-Say, [["Can we reach the football field in time without roads?"->football intro]]
-Say, [["Do you think they love me anyway?"]]
-
-Say, [["Tell me a story."->story]]
+"If only we had [[oil]] and (link-reveal:"factories")[(open-url:"https://en.wikipedia.org/wiki/Factory")], my lord, the world would be a better place to live in." 
 
 [[Consider the Roacha-Cola you just drank->cola]]
+
+Say, [["Tell me a story from the old days."->story]]
+
+Say, [["Can we reach the football field in time without roads?"->football intro]]
+Say, [["Do you think they love me anyway?"->love]]
+
+[[Go to the control room->controls]]
 
 :: cola
 
 The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
 
-Eventually, the cola reaches your ring of numerous filamentous yellow-colored malpighian tubules (which have always functioned as your excretionary organs). **[[Source]]**
+Eventually, the cola reaches your ring of numerous filamentous yellow-colored malpighian tubules (which have always functioned as your excretionary organs). (link-reveal: "(Source)")[(https://www.youtube.com/watch?v=MTxiUGvNk2I)]
 
 [[Back->sighs]]
-
-:: Source
-
-(link:transformer)[(https://www.youtube.com/watch?v=MTxiUGvNk2I)]
 
 :: story
 
@@ -64,7 +62,7 @@ The steward visibly perks up and reads you a story from a scroll which says:
 
 The rest of the words are singed beyond recognition, and the steward stops reading.
 
-At the bottom of the page was a (link:"mysterious message in blue ink with an underline")[(open-url:"https://talktotransformer.com")].
+At the bottom of the page was a (link-reveal:"mysterious message in blue ink with an underline")[(open-url:"https://talktotransformer.com")].
 
 [[Feel inspired->wow]]
 
@@ -76,9 +74,9 @@ The words fall loose of your labial and maxilary palps which have relaxed in sat
 
 :: oil
 
-You rustle your mesothroax in frustration at the steward. "Idiot! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!"
+You rustle your mesothroax in frustration at the steward. "You fool! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!"
 
-Your steward hisses, forcefully expelling air through the specially-adapted respiratory openings on the fourth segment of his body (link:"(learn more)")[(open-url:"https://en.wikipedia.org/wiki/Madagascar_hissing_cockroach")].
+Your steward hisses, forcefully expelling air through the specially-adapted respiratory openings on the fourth segment of his body (link-reveal:"(learn more)")[(open-url:"https://en.wikipedia.org/wiki/Madagascar_hissing_cockroach")].
 
 [[Concentrate.->sighs]]
 
@@ -87,3 +85,5 @@ Your steward hisses, forcefully expelling air through the specially-adapted resp
 TODO: Waffle iron
 
 TODO: include eye of the tiger lyrics
+
+TODO: Establish that we have infinite water
