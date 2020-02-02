@@ -1,5 +1,16 @@
 # Big Noise Fanfic Planning
 
+* Can we reach the football field in time
+* Do They Love Me
+* Tell Me A Story
+  * Bullshit
+
+
+## Do They Love Me
+```plantuml
+
+```
+
 ```plantuml
 (Story of the Mice)
 (John Cloninger)

@@ -8,60 +8,82 @@
 
 ::StoryTitle
 
-Big Noise
+Uranium Roachpunk: An Endless Nightmare
+
+::Stylesheets [stylesheet]
+
+tw-story {
+    background-color: hsl(80, 100%, 30%);
+}
 
 :: Start
 
-Call me Ishmael. 
+''Uranium Roachpunk: An Endless Nightmare''
 
+//(link-reveal:"Part Zero:")[The Last Lord of the Cockroaches]//
 
-Before the [[bombs]], there was a [[musical number]]
+You didn't choose the radiation, the radiation chose you. As you hum "The Eye of the Tiger" while cracking open a fresh Roacha-Cola 92, you consider the things that need repair:
 
-:: bombs
+* (link: "Humanity")[No, **Roachkind**] was great
+* You don't have (link-reveal:"jobs")[(why?)]
+* You don't have churches
+* You don't have roads
+* You don't even have love
+* You have never had a waffle
 
-... and the roaches took over the world with their steam-powered mahogany tanks, humanity was great, only you didn't have [[jobs]]. 
+You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:
 
-:: jobs
+:: sighs
 
-You didn't have [[churches]], you didn't have [[roads]], you didn't have even [[love]], but I think we can all agree that if there had been oil and factories, the world would be a better place to live in.  Everyone loves a winner.  I did. I couldn't live without one! So I used to build wooden bombs and cardboard crates and make them explode out of a distance.  Maybe with the assistance of my older brother or even our family pet lion, that was our private army.  We both loved to solve problems in numbers.  We loved to pile into vehicles, blow up
+"If only we had [[oil]] and (link:"factories")[(open-url:"https://en.wikipedia.org/wiki/Factory")], my lord, the world would be a better place to live in." 
 
-:: musical number
+Say, [["Can we reach the football field in time without roads?"->football intro]]
+Say, [["Do you think they love me anyway?"]]
 
-But we sang:
+Say, [["Tell me a story."->story]]
 
-(March, allegro)
+[[Consider the Roacha-Cola you just drank->cola]]
 
-🎵
+:: cola
 
-Humanity was great!
-Only you didn't have: 
-jobs
-road
-churches
-love
-wooden bombs
-cardboard crates
+The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
 
+Eventually, the cola reaches your ring of numerous filamentous yellow-colored malpighian tubules (which have always functioned as your excretionary organs). **[[Source]]**
 
+[[Back->sighs]]
 
+:: Source
 
-Humanity was great!
-Only nobody had jobs!
-And nobody had oil!
-The roads were like Detroit!
+(link:transformer)[(https://www.youtube.com/watch?v=MTxiUGvNk2I)]
 
-Everybody loves a winner!
-I couldn't live without one!
-[sing it really really fast]
-So I used to build wooden bombs and cardboard crates and make them explode out from a distance __kablooey__!
+:: story
 
+The steward visibly perks up and reads you a story from a scroll which says:
 
-🎵
+//Before the bombs and the roaches took over the world with their legendary steam-powered mahogany tanks, the mice in Sherwood Forest worked diligently for over thirty years, painstakingly, to bring an end to this endless nightmare. Their efforts finally paid off on March 15, 1976 when the Korean Industrialist Sung Gil-Chung was captured by the mice and removed to a holding cage, but some mouse-work was still required before he could be transferred to a new kingdom. By the end of March, six members of the Sherwood Forest Mages Guild completed their mission - a boy named Kevin, a little girl named Patti, and a three-foot red dragon named Kor, and Djan, who decided to be the lucky girl. Djan// --
 
-Blowing up tanks in the street,
+The rest of the words are singed beyond recognition, and the steward stops reading.
 
-...
+At the bottom of the page was a (link:"mysterious message in blue ink with an underline")[(open-url:"https://talktotransformer.com")].
 
+[[Feel inspired->wow]]
 
+:: wow
 
-🎵
+"That's my favorite bedtime story. [[Thanks->sighs]] steward!"
+
+The words fall loose of your labial and maxilary palps which have relaxed in satisfaction.
+
+:: oil
+
+You rustle your mesothroax in frustration at the steward. "Idiot! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!"
+
+Your steward hisses, forcefully expelling air through the specially-adapted respiratory openings on the fourth segment of his body (link:"(learn more)")[(open-url:"https://en.wikipedia.org/wiki/Madagascar_hissing_cockroach")].
+
+[[Concentrate.->sighs]]
+
+:: todos
+
+TODO: Waffle iron
+
+TODO: include eye of the tiger lyrics
