@@ -38,7 +38,8 @@ Your castle on a hill is also an abondoned waffle iron.
 (set: $popPercentStarved to 0)
 (set: $plagueYear to false)
 (set: $immigrantBonus to 0)
-(set: $gameOver to false)</tw-passagedata><tw-passagedata pid="3" name="buy land" tags="" position="350,100" size="100,100">(set: $tradeAcres to (num:(prompt: &quot;Land is trading at &quot; + str($landPrice) + &quot; bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): &quot;, &quot;0&quot;)))
+(set: $gameOver to false)</tw-passagedata><tw-passagedata pid="3" name="buy land" tags="" position="350,100" size="100,100">(set: $buylandmessage to (&quot;Land is trading at &quot; + (str:$landPrice) + &quot; moles of uranium per centiacre.\n\nYou own &quot;+(str:$acres)+&quot; centiacres now.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): &quot;))
+(set: $tradeAcres to (num:(prompt:$buylandmessage, &quot;0&quot;)))
 (if: $tradeAcres &gt; 0)[Buy!]
 (if: $tradeAcres &lt; 0)[Sell!]</tw-passagedata><tw-passagedata pid="4" name="feed people" tags="" position="475,100" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="dig uranium" tags="" position="600,100" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="todos2" tags="" position="725,100" size="100,100"># TODO: Get a story every at halftime and end</tw-passagedata><tw-passagedata pid="7" name="Start" tags="" position="850,100" size="100,100">&#39;&#39;Uranium Roachpunk: An Endless Nightmare&#39;&#39;
 

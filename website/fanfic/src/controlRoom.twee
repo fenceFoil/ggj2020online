@@ -33,7 +33,8 @@ Stretching your forelegs, you set about [[attending->buy land]] to the duties of
 
 :: buy land
 
-(set: $tradeAcres to (num:(prompt: "Land is trading at " + str($landPrice) + " bushels per centiacre.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): ", "0")))
+(set: $buylandmessage to ("Land is trading at " + (str:$landPrice) + " moles of uranium per centiacre.\n\nYou own "+(str:$acres)+" centiacres now.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): "))
+(set: $tradeAcres to (num:(prompt:$buylandmessage, "0")))
 (if: $tradeAcres > 0)[Buy!]
 (if: $tradeAcres < 0)[Sell!]
 

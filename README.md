@@ -10,9 +10,7 @@ There are lots of noises, there's lots of voice acted dialog, and sound effects 
 
 ## Files
 
-/website/ggj2020fanfic is __Active__
-
-/website/ggj2020online is **Abandoned** :sad:
+/website/fanfic is the only active part of this repo
 
 ## Fanfic
 
