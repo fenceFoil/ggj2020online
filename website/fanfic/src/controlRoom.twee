@@ -12,7 +12,11 @@ Your castle on a hill is also an abondoned waffle iron.
 
 :: lead
 
-Stretching your forelegs, you set about [[attending->buy land]] to the duties of state...
+Stretching your forelegs, you set about [[attending->buy land]] to the duties of state:
+
+1. Dealing in real estate
+2. Making soda
+3. Running the mines
 
 (set: $year to 1)
 (set: $pop to 100)
@@ -33,16 +37,130 @@ Stretching your forelegs, you set about [[attending->buy land]] to the duties of
 
 :: buy land
 
-(set: $buylandmessage to ("Land is trading at " + (str:$landPrice) + " moles of uranium per centiacre.\n\nYou own "+(str:$acres)+" centiacres now.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): "))
+(set: $buylandmessage to ("Land is trading at " + (str:$landPrice) + " grams of uranium per centiacre.\n\nYou own "+(str:$acres)+" centiacres now, and can afford to overrun up to " + (str:(floor:($stores/$landPrice))) + " more with your "+(str:$stores)+" grams of uranium.\n\nHow many centi-acres do you wish to buy/barter (negative to sell): "))
 (set: $tradeAcres to (num:(prompt:$buylandmessage, "0")))
-(if: $tradeAcres > 0)[Buy!]
-(if: $tradeAcres < 0)[Sell!]
+(if: $tradeAcres > 0)[
+    (if: $tradeAcres * $landPrice > $stores)[
+        (alert:("There are not enough grams of uranium in your stores!")),
+        (goto:"buy land")
+    ](else:)[
+        (set: $acres to $acres + $tradeAcres),
+        (set: $stores to $stores - ($landPrice * $tradeAcres)),
+        (goto:"conquest")
+    ]
+]
+(if: $tradeAcres < 0)[
+    (set: $tradeAcres to -$tradeAcres),
+    (if: $tradeAcres > $acres) [
+        (alert:("Your steward looks up from his writing: you only have "+(str:$acres)+" centiacres to sell!"))
+        (goto:"buy land")
+    ](else:)[
+        (set: $acres to $acres - $tradeAcres)
+        (set: $stores to $stores + ($landPrice * $tradeAcres))
+        (goto:"sold land")
+    ]
+]
+(goto:"feed people")
+
+:: conquest
+
+Your $pop desperate, irradiated cockroach citizens wave their midlegs in the air as they overrun the $tradeAcres new centiacres of land to mine, bribing away the settlers there with uranium!
+
+[[But they hunger...->feed people]]
+
+:: sold land
+
+Realizing you need uranium for your soda factories and your advanced weapons development more than land, you sell!
+
+[[Celebrate by feeding your people->feed people]]
 
 :: feed people
 
+(set: $allottedFood to (num:(prompt:(
+    "Your son Blank who runs the factories skitters over in his trenchcoat to collect some uranium to make nutritious Roacha-Cola with! You have "+(str:$stores)+" grams (remember the mines!)."),
+    (str:($stores))
+)))
+(if: $allottedFood > $stores)[
+    (alert:("Blank laughs chitenously at your wishful thinking.")),
+    (goto: "feed people")
+](else:)[
+    (set: $stores to $stores - $allottedFood),
+    (goto: "people fed")
+]
+
+:: people fed
+
+(goto: "dig uranium")
+
+Blank loads the $allottedFood grams of uranium onto the back of another roach and skitters back to the bottling factory and centerfuge.
+
+Time to [[manage the mines!->dig uranium]]
+
 :: dig uranium
 
+(set: $planted to (num:(prompt:(
+    "The machines that help cockroaches mine uranium are hellishly large, some of the biggest things roaches know, and they're really, really deadly. They make tank warfare look like it's part of a child's birthday party.\n\nYou have "+(str:$acres)+" centiacres.\nIt takes 0.5 gram of uranium to mine one acre, out of your "+(str:$stores)+"g.\nOne roach can farm 10 centiacres, and you have "+(str:$pop)+" roaches.\n\nEnter the amount of centiacres to mine:"), 
+    (str:(min:
+            ($acres),
+            ($pop*10),
+            ($stores/2)
+    ))
+)))
+
+(if: $planted > $acres)[
+    (alert:("The machines can't conquer land, they're not that scary really.")),
+    (goto: "dig uranium")
+]
+(if: (round:($planted / 2)) > $stores)[
+    (alert:("We can only mine "+(str:(round:($planted / 2)))+".")),
+    (goto: "dig uranium")
+]
+(if: $planted > 10*$pop)[
+    (alert:("We already overwork our roaches! Too few roaches.")),
+    (goto: "dig uranium")
+]
+
+(set: $stores to $stores - (round:($planted/2)))
+(goto: "run year")
+
+:: run year
+
+(set: $harvest to $planted * (random: 1, 5))
+(set: $ratChance to (random: 1, 5))
+(if: $ratChance > 3)[
+    (set: $eatenByRats to (round:($stores/$ratChance)))
+](else:)[
+    (set: $eatenByRats to 0)
+]
+(set: $stores to $stores - $eatenByRats + $harvest)
+
+(set: $landPrice to (random: 0, 9) + 17) 
+
+(if: $pop < 1) [(set: $pop to 1)]
+(set: $immigrants to (random: 1, 5) * (20.0 * $acres + $stores) / $pop / 100.0 + 1)
+(set: $maxFedPeople to $allottedFood / 20)
+(if: $maxFedPeople >= $pop)[
+    (set: $deaths to 0),
+    (set: $popPercentStarved to ($year - 1) * $popPercentStarved / $year)
+]
+
+$eatenByRats
+$harvest
+$landPrice
+$immigrants
+
+[[lead]]
+
+:: report year
 
 :: todos2
 
+# TODO: source linmk https://www.atariarchives.org/basicgames/showpage.php?page=78
+
 # TODO: Get a story every at halftime and end
+
+# TODO :Every year, give progress update on developing tanks (prototanks)
+
+# Swap feeding people and planting fields
+
+# Make some of the messages crazy long and auto generated

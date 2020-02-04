@@ -1,5 +1,7 @@
 # Global Game Jam 2020 Online
 
+VISIT the real final version at https://bignoise.neocities.org
+
 Imagine running around a steampunk spaceship consisting of three rooms filled with random parts. You're scanning QR codes, looking at random parts of the ship, trying to trace where things are breaking down against the clock.
 
 Fixing things involves shaking your smartphone.
