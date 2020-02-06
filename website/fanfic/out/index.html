@@ -11,7 +11,7 @@
 
 <tw-story></tw-story>
 
-<!-- UUID://42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3// --><tw-storydata name="Uranium Roachpunk: An Endless Nightmare" startnode="12" creator="Tweego" creator-version="2.1.0+9ea2fab" ifid="42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
+<!-- UUID://42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3// --><tw-storydata name="Uranium Roachpunk: An Endless Nightmare" startnode="13" creator="Tweego" creator-version="2.1.0+9ea2fab" ifid="42D6A027-7536-4F8E-AD25-1DD8F8AB1DB3" zoom="1" format="Harlowe" format-version="3.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story {
     background-color: hsl(80, 100%, 30%);
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="controls" tags="" position="100,100" size="100,100">You enter the control room and are comforted by the wood panelling and the brass piping running up and down the walls. The Dataroach, your favorite child, is using your castle as a prototype for a new tank design, but when he asked the townspeople for fuel they refused him, and he burned the town!
 
@@ -21,11 +21,13 @@ Your castle on a hill is also an abondoned waffle iron.
 
 [[Lead your city!-&gt;lead]]
 
-[[Return to the bedchamber-&gt;sighs]]</tw-passagedata><tw-passagedata pid="2" name="lead" tags="" position="225,100" size="100,100">Stretching your forelegs, you set about [[attending-&gt;buy land]] to the duties of state:
+[[Return to the bedchamber-&gt;sighs]]</tw-passagedata><tw-passagedata pid="2" name="lead" tags="" position="225,100" size="100,100">Stretching your forelegs, you set about attending to the duties of state:
 
 1. Dealing in real estate
 2. Making soda
 3. Running the mines
+
+[[Might as well get started! You rub your claws...-&gt;buy land]]
 
 (set: $year to 1)
 (set: $pop to 100)
@@ -117,19 +119,71 @@ Time to [[manage the mines!-&gt;dig uranium]]</tw-passagedata><tw-passagedata pi
 
 (set: $landPrice to (random: 0, 9) + 17) 
 
-$eatenByRats
-$harvest
-$landPrice
+(if: $pop &lt; 1) [(set: $pop to 1)]
+(set: $immigrants to (round:((random: 1, 5) * (20.0 * $acres + $stores) / $pop / 100.0 + 1)))
+(set: $maxFedPeople to $allottedFood / 20)
+(if: $maxFedPeople &gt;= $pop)[
+    (set: $deaths to 0),
+    (set: $popPercentStarved to ($year - 1) * $popPercentStarved / $year)
+](else:)[
+    (set: $deaths to $pop - $maxFedPeople)
+    (if: $deaths &gt; 0.45 * $pop)[
+        (goto: &quot;impeach&quot;)
+    ]
+    (set: $popPercentStarved to ($year - 1) * $popPercentStarved + $deaths * 100.0 / $pop / $year)
+    (set: $pip to $maxFedPeople)
+    (set: $totalDeaths to $totalDeaths + $deaths)
+]
 
-[[lead]]</tw-passagedata><tw-passagedata pid="10" name="report year" tags="" position="1225,100" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="todos2" tags="" position="100,225" size="100,100"># TODO: source linmk https://www.atariarchives.org/basicgames/showpage.php?page=78
+(set: $pop to $pop + $immigrants)
 
-# TODO: Get a story every at halftime and end
+(if: (random: 1, 20) &lt;= 3) [
+    (set: $plagueYear to true)
+    (set: $pop to (round:($pop / 2)))
+](else:)[
+    (set: $plagueYear to false)
+]
+
+(set: $year to $year + 1)
+
+(goto: &quot;report year&quot;)
+
+[[lead]]</tw-passagedata><tw-passagedata pid="10" name="impeach" tags="" position="1225,100" size="100,100">$deaths roaches starve. Uh oh!
+
+Unfortunately for you, the Dataroach returns just now. Hearing your people protest your extreme mismanagement, he leverages super-secret mahogany tanks to storm your headquarters! You stand no chance; the Dataroach has you in his grasp now. Let&#39;s see how he treats you when you are detained…
+
+Following his coup, the Dataroach disassembled your home and redecorated it. He removed a large monitor, and on it he projected an image of a screen on the battlefield. On that screen he had carved the following word: &quot;WERE.&quot; A light for the victors flashes in his eyes as he reads them: &quot;YOU WILL NOT ENTER PLS!&quot;
+
+🐜 YOU HAVE DIED (of shame). 🐜
+
+(link:&quot;Restart&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="11" name="report year" tags="" position="100,225" size="100,100">A year passes. Your steward scurries up to you and says, &quot;Lord Hatsby, I beg to report to you:&quot;
+
+&quot;In year $year, $deaths roaches starved, and $immigrants joined your lands.&quot;
+
+(if: $plagueYear)[In an entertainingly grim side note, half of your roaches were killed by secret weapons testing. It&#39;s a long story.]
+
+&quot;The population is now $pop.&quot;
+&quot;You now own $acres centiacres.&quot;
+&quot;You mined $yield grams of U-92.&quot;
+(if: $eatenByRats &gt; 0)[&quot;... but R&amp;D stole $eatenByRats grams.&quot;]
+&quot;You now have $stores grams in store.&quot;
+
+(if: $year &lt; 10)[[[What next?-&gt;buy land]]]
+(else:)[
+    Contrats! Not even you can kill a roach!
+
+    Especially armed with what R&amp;D now reveals to you: mahogany-panelled death tanks fueled by uranium. They look almost steampunk...
+
+    (link-reveal:&quot;(Source of game)&quot;)[(open-url:&quot;https://www.atariarchives.org/basicgames/showpage.php?page=78&quot;)]
+]
+
+(link:&quot;Restart&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="12" name="todos2" tags="" position="225,225" size="100,100"># TODO: Get a story every at halftime and end
 
 # TODO :Every year, give progress update on developing tanks (prototanks)
 
 # Swap feeding people and planting fields
 
-# Make some of the messages crazy long and auto generated</tw-passagedata><tw-passagedata pid="12" name="Start" tags="" position="225,225" size="100,100">&#39;&#39;Uranium Roachpunk: An Endless Nightmare&#39;&#39;
+# Make some of the messages crazy long and auto generated</tw-passagedata><tw-passagedata pid="13" name="Start" tags="" position="350,225" size="100,100">&#39;&#39;Uranium Roachpunk: An Endless Nightmare&#39;&#39;
 
 //Part Zero: The Last Lord of the Cockroaches//
 
@@ -141,30 +195,30 @@ You didn&#39;t choose the radiation, the radiation chose you. As you hum &quot;T
 * You don&#39;t have roads
 * You don&#39;t even have love(live: 30s)[* You have never had a waffle]
 
-You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:</tw-passagedata><tw-passagedata pid="13" name="sighs" tags="" position="350,225" size="100,100">&quot;If only we had [[oil]] and [[factories]], my lord, the world would be a better place to live in.&quot; 
+You feel the weight of the world on your prothorax. Your steward opens the spiracles on all his body segments as only a cockroach can and [[sighs]]:</tw-passagedata><tw-passagedata pid="14" name="sighs" tags="" position="475,225" size="100,100">&quot;If only we had [[oil]] and [[factories]], my lord, the world would be a better place to live in.&quot; 
 
 Say, [[&quot;That was some spicy Roacha-Cola.&quot;-&gt;cola]]
 Say, [[&quot;Tell me a story from the old days.&quot;-&gt;story]]
 Say, [[&quot;Can we reach the football field in time without roads?&quot;-&gt;football intro]]
 Say, [[&quot;Do you think they love me anyway, the people?&quot;-&gt;love]]
 
-[[Go to the control room-&gt;controls]]</tw-passagedata><tw-passagedata pid="14" name="factories" tags="" position="475,225" size="100,100">The Roacha-Cola you are drinking is hand-brewed by your sons Goose and Blank, all the factories were destroyed in the (link-repeat:&quot;Big Noise&quot;)[(either:&quot;🍄&quot;,&quot;☁️&quot;,&quot;🍄&quot;,&quot;☁️&quot;,&quot;☁️&quot;,&quot;🐜🐜&quot;,&quot;💀&quot;)].
+[[Go to the control room-&gt;controls]]</tw-passagedata><tw-passagedata pid="15" name="factories" tags="" position="600,225" size="100,100">The Roacha-Cola you are drinking is hand-brewed by your sons Goose and Blank, all the factories were destroyed in the (link-repeat:&quot;Big Noise&quot;)[(either:&quot;🍄&quot;,&quot;☁️&quot;,&quot;🍄&quot;,&quot;☁️&quot;,&quot;☁️&quot;,&quot;🐜🐜&quot;,&quot;💀&quot;)].
 
-[[But that was the past.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="15" name="football intro" tags="" position="600,225" size="100,100">You skitter out of the castle and catch a dagger in the back as two rival factions of roaches fight each other like crude centipedes due to the lack of excess U-92 available to fuel the advanced war machines you are preparing. Instead, all the U-92 is used for Roacha-Cola.
+[[But that was the past.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="16" name="football intro" tags="" position="725,225" size="100,100">You skitter out of the castle and catch a dagger in the back as two rival factions of roaches fight each other like crude centipedes due to the lack of excess U-92 available to fuel the advanced war machines you are preparing. Instead, all the U-92 is used for Roacha-Cola.
 
-🐜 YOU HAVE DIED. 🐜</tw-passagedata><tw-passagedata pid="16" name="love" tags="" position="725,225" size="100,100">[[Maybe yes?-&gt;steamy]]
+🐜 YOU HAVE DIED. 🐜</tw-passagedata><tw-passagedata pid="17" name="love" tags="" position="850,225" size="100,100">[[Maybe yes?-&gt;steamy]]
 
-[[no-&gt;why not]]</tw-passagedata><tw-passagedata pid="17" name="why not" tags="" position="850,225" size="100,100">&quot;But why don&#39;t my children Goose and Blank love me? My god they love me.&quot;
+[[no-&gt;why not]]</tw-passagedata><tw-passagedata pid="18" name="why not" tags="" position="975,225" size="100,100">&quot;But why don&#39;t my children Goose and Blank love me? My god they love me.&quot;
 
 Silence comes down the hill outside, quite easily, as if the townsfolk have all resigned themselves to a temporary loss of fun. He silently grunts again.
 
 &quot;Children, why do you not love me? I am the most wonderful father there is.&quot;
 
-You [[sigh-&gt;sighs]].</tw-passagedata><tw-passagedata pid="18" name="cola" tags="" position="975,225" size="100,100">The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
+You [[sigh-&gt;sighs]].</tw-passagedata><tw-passagedata pid="19" name="cola" tags="" position="1100,225" size="100,100">The Roacha-cola you drank passes through your foregut, tickling your cuticules, and into your small conical gizzard. While small, your conical gizzard is the envy of the other roaches and the source of your political stature, converting the Roacha-cola you drink into exceptional amounts of energy.
 
 Eventually, the cola reaches your ring of numerous filamentous yellow-colored malpighian tubules (which have always functioned as your excretionary organs). (link-reveal: &quot;(Source)&quot;)[(https://www.youtube.com/watch?v=MTxiUGvNk2I)]
 
-[[Back-&gt;sighs]]</tw-passagedata><tw-passagedata pid="19" name="story" tags="" position="1100,225" size="100,100">The steward visibly perks up and reads you a story from a scroll which says:
+[[Back-&gt;sighs]]</tw-passagedata><tw-passagedata pid="20" name="story" tags="" position="1225,225" size="100,100">The steward visibly perks up and reads you a story from a scroll which says:
 
 //Before the bombs and the roaches took over the world with their legendary steam-powered mahogany tanks, the mice in Sherwood Forest worked diligently for over thirty years, painstakingly, to bring an end to this endless nightmare. Their efforts finally paid off on March 15, 1976 when the Korean Industrialist Sung Gil-Chung was captured by the mice and removed to a holding cage, but some mouse-work was still required before he could be transferred to a new kingdom. By the end of March, six members of the Sherwood Forest Mages Guild completed their mission - a boy named Kevin, a little girl named Patti, and a three-foot red dragon named Kor, and Djan, who decided to be the lucky girl. Djan// --
 
@@ -172,15 +226,15 @@ The rest of the words are singed beyond recognition, and the steward stops readi
 
 At the bottom of the page was a (link-reveal:&quot;mysterious message in blue ink with an underline&quot;)[(open-url:&quot;https://talktotransformer.com&quot;)].
 
-[[Feel inspired-&gt;wow]]</tw-passagedata><tw-passagedata pid="20" name="wow" tags="" position="1225,225" size="100,100">&quot;That&#39;s my favorite bedtime story. [[Thanks-&gt;sighs]] steward!&quot;
+[[Feel inspired-&gt;wow]]</tw-passagedata><tw-passagedata pid="21" name="wow" tags="" position="100,350" size="100,100">&quot;That&#39;s my favorite bedtime story. [[Thanks-&gt;sighs]] steward!&quot;
 
-The words fall loose of your labial and maxilary palps which have relaxed in satisfaction.</tw-passagedata><tw-passagedata pid="21" name="oil" tags="" position="100,350" size="100,100">You rustle your mesothroax in frustration at the steward. &quot;You fool! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!&quot;
+The words fall loose of your labial and maxilary palps which have relaxed in satisfaction.</tw-passagedata><tw-passagedata pid="22" name="oil" tags="" position="225,350" size="100,100">You rustle your mesothroax in frustration at the steward. &quot;You fool! Oil and factories will be the least of our problems once Dataroach returns from Three Mile Island!&quot;
 
 Your steward hisses, forcefully expelling air through the specially-adapted respiratory openings on the fourth segment of his body (link-reveal:&quot;(learn more on Wikipedia)&quot;)[(open-url:&quot;https://en.wikipedia.org/wiki/Madagascar_hissing_cockroach&quot;)].
 
-[[Concentrate.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="22" name="todos" tags="" position="225,350" size="100,100">TODO: include eye of the tiger lyrics
+[[Concentrate.-&gt;sighs]]</tw-passagedata><tw-passagedata pid="23" name="todos" tags="" position="350,350" size="100,100">TODO: include eye of the tiger lyrics
 
-TODO: Establish that we have infinite water</tw-passagedata><tw-passagedata pid="23" name="outside" tags="" position="350,350" size="100,100">[[Return to the bedchamber -&gt; sighs]]</tw-passagedata><tw-passagedata pid="24" name="steamy" tags="" position="475,350" size="100,100">You naughty reader! There&#39;s nothing here, although there is a lot of steam these days in the lab...
+TODO: Establish that we have infinite water</tw-passagedata><tw-passagedata pid="24" name="outside" tags="" position="475,350" size="100,100">[[Return to the bedchamber -&gt; sighs]]</tw-passagedata><tw-passagedata pid="25" name="steamy" tags="" position="600,350" size="100,100">You naughty reader! There&#39;s nothing here, although there is a lot of steam these days in the lab...
 
 [[Back-&gt;sighs]]</tw-passagedata></tw-storydata>
 

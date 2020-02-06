@@ -12,11 +12,13 @@ Your castle on a hill is also an abondoned waffle iron.
 
 :: lead
 
-Stretching your forelegs, you set about [[attending->buy land]] to the duties of state:
+Stretching your forelegs, you set about attending to the duties of state:
 
 1. Dealing in real estate
 2. Making soda
 3. Running the mines
+
+[[Might as well get started! You rub your claws...->buy land]]
 
 (set: $year to 1)
 (set: $pop to 100)
@@ -137,25 +139,74 @@ Time to [[manage the mines!->dig uranium]]
 (set: $landPrice to (random: 0, 9) + 17) 
 
 (if: $pop < 1) [(set: $pop to 1)]
-(set: $immigrants to (random: 1, 5) * (20.0 * $acres + $stores) / $pop / 100.0 + 1)
+(set: $immigrants to (round:((random: 1, 5) * (20.0 * $acres + $stores) / $pop / 100.0 + 1)))
 (set: $maxFedPeople to $allottedFood / 20)
 (if: $maxFedPeople >= $pop)[
     (set: $deaths to 0),
     (set: $popPercentStarved to ($year - 1) * $popPercentStarved / $year)
+](else:)[
+    (set: $deaths to $pop - $maxFedPeople)
+    (if: $deaths > 0.45 * $pop)[
+        (goto: "impeach")
+    ]
+    (set: $popPercentStarved to ($year - 1) * $popPercentStarved + $deaths * 100.0 / $pop / $year)
+    (set: $pip to $maxFedPeople)
+    (set: $totalDeaths to $totalDeaths + $deaths)
 ]
 
-$eatenByRats
-$harvest
-$landPrice
-$immigrants
+(set: $pop to $pop + $immigrants)
+
+(if: (random: 1, 20) <= 3) [
+    (set: $plagueYear to true)
+    (set: $pop to (round:($pop / 2)))
+](else:)[
+    (set: $plagueYear to false)
+]
+
+(set: $year to $year + 1)
+
+(goto: "report year")
 
 [[lead]]
 
+:: impeach
+
+$deaths roaches starve. Uh oh!
+
+Unfortunately for you, the Dataroach returns just now. Hearing your people protest your extreme mismanagement, he leverages super-secret mahogany tanks to storm your headquarters! You stand no chance; the Dataroach has you in his grasp now. Let's see how he treats you when you are detained…
+
+Following his coup, the Dataroach disassembled your home and redecorated it. He removed a large monitor, and on it he projected an image of a screen on the battlefield. On that screen he had carved the following word: "WERE." A light for the victors flashes in his eyes as he reads them: "YOU WILL NOT ENTER PLS!"
+
+🐜 YOU HAVE DIED (of shame). 🐜
+
+(link:"Restart")[(reload:)]
+
 :: report year
 
-:: todos2
+A year passes. Your steward scurries up to you and says, "Lord Hatsby, I beg to report to you:"
 
-# TODO: source linmk https://www.atariarchives.org/basicgames/showpage.php?page=78
+"In year $year, $deaths roaches starved, and $immigrants joined your lands."
+
+(if: $plagueYear)[In an entertainingly grim side note, half of your roaches were killed by secret weapons testing. It's a long story.]
+
+"The population is now $pop."
+"You now own $acres centiacres."
+"You mined $yield grams of U-92."
+(if: $eatenByRats > 0)["... but R&D stole $eatenByRats grams."]
+"You now have $stores grams in store."
+
+(if: $year < 10)[[[What next?->buy land]]]
+(else:)[
+    Contrats! Not even you can kill a roach!
+
+    Especially armed with what R&D now reveals to you: mahogany-panelled death tanks fueled by uranium. They look almost steampunk...
+
+    (link-reveal:"(Source of game)")[(open-url:"https://www.atariarchives.org/basicgames/showpage.php?page=78")]
+]
+
+(link:"Restart")[(reload:)]
+
+:: todos2
 
 # TODO: Get a story every at halftime and end
 
